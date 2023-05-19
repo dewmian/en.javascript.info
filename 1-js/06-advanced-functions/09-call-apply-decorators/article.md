@@ -394,13 +394,13 @@ So, technically it takes `this` and joins `this[0]`, `this[1]` ...etc together. 
 
 ## Decorators and function properties
 
-It is generally safe to replace a function or a method with a decorated one, except for one little thing. If the original function had properties on it, like `func.calledCount` or whatever, then the decorated one will not provide them. Because that is a wrapper. So one needs to be careful if one uses them.
+It is generally safe to replace a function or a method with a decorated one, except for one little thing. If the original function had custom properties on it, like `func.calledCount` or whatever, then the decorated one will not provide them. Because that is a wrapper. So one needs to be careful if one uses them.
 
-E.g. in the example above if `slow` function had any properties on it, then `cachingDecorator(slow)` is a wrapper without them.
+E.g. in the example above if `slow` function had any custom properties on it, then `cachingDecorator(slow)` is a wrapper without them.
 
 Some decorators may provide their own properties. E.g. a decorator may count how many times a function was invoked and how much time it took, and expose this information via wrapper properties.
 
-There exists a way to create decorators that keep access to function properties, but this requires using a special `Proxy` object to wrap a function. We'll discuss it later in the article <info:proxy#proxy-apply>.
+There exists a way to create decorators that keep access to function custom properties, but this requires using a special `Proxy` object to wrap a function. We'll discuss it later in the article <info:proxy#proxy-apply>.
 
 ## Summary
 
